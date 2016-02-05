@@ -1,0 +1,62 @@
+body{
+    margin: auto;
+    width: 900px;
+}
+
+#titlebox{
+    text-align: center;
+}
+
+#yourlikes{
+    display: block;
+    border: solid 1px red;
+}
+
+#otherpages{
+    display: block;
+    border: solid 1px blue;
+    margin-bottom: 10px;
+}
+
+img{
+    height: 110px;
+}
+
+.pagediv{
+   display: inline-block;
+   position: relative;
+   margin: 5px;
+}
+
+
+.superdiv{
+    display: inline-block;
+    background-color: black;
+    opacity:0.01;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width:100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+}
+
+.hovering{
+    opacity: 0.5;
+    display: inline-block;
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width:100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+}
+
+
+a:link{
+    text-decoration: none;
+    color: white;
+}

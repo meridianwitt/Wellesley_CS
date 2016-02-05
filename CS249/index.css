@@ -1,0 +1,26 @@
+body {
+  width: 1000px;
+  margin: 5px auto;
+
+}
+
+h1, h2, h3{
+ text-align: center;
+}
+
+h1{
+ font-family: 'Pacifico', 'cursive';
+}
+
+table{
+  border-collapse: collapse;
+  margin: auto;
+}
+table, th, td{
+ border: 1px solid black;
+ padding: 5px;
+}
+
+th{
+    background: aliceblue;
+}

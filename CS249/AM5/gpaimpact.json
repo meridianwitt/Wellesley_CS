@@ -1,0 +1,33 @@
+{
+    "gradeimpact":
+    [
+        {
+           "category": "all1",
+           "postpol": -0.175
+        },
+        {
+           "category": "all2",
+           "postpol": -0.172
+        },
+        {
+           "category": "all3",
+           "postpol": -0.174
+        },
+        {
+           "category": "black",
+           "postpol": -0.363
+        },
+        {
+           "category": "latina",
+           "postpol": -0.081
+        },
+        {
+           "category": "lowsat",
+           "postpol": -0.299
+        },
+        {
+           "category": "lowqr",
+           "postpol": -0.334
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AM4: Welleslely Course Planner</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="bootswatch.css">
+  <link rel="stylesheet" href="am4.css">
+
+</head>
+
+    <body>
+           <div id="planDiv" class="panel panel-info">  
+               <div class="panel-heading"> <h3 class="panel-title">Plans</h3></div>
+               <div class="panel-body">
+                 <button id="authorize-button" style="visibility: hidden" class="btn btn-primary btn-xs">Login and Authorize</button>
+                <button id="addToCalendar" style="visibility: hidden"  class="btn btn-primary btn-xs">Add to Google Calendar</button>                            </div>
+               <div id="plans" class="panel-info"></div>
+            </div>
+        
+        <div class="container">
+            <div class="page-header" id="banner">
+                <div class="row">
+                    <h1>Wellesley Course Planner</h1>
+                  
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-3">
+
+                               
+                                    <label>Department: </label>
+                                    <input id="dept">
+            <!--                        <button id="deptSubmit" class="btn btn-primary">Submit</button>-->
+                            </div>
+
+                            <div class="col-lg-5" >
+                                 <label>Day: </label>
+                                <div class="radio">
+                                        <input type="checkbox" value="M" id="M" class="day">Monday
+                                        <input type="checkbox" value="T" id="T" class="day">Tuesday
+                                        <input type="checkbox" value="W" id="W" class="day">Wednesday
+                                        <input type="checkbox" value="R" id="R" class="day">Thursday
+                                        <input type="checkbox" value="F" id="F" class="day">Friday
+            <!--                            <button id="daySubmit" class="btn btn-primary">Submit</button>-->
+                                </div>
+                            </div>
+
+                              <div class="col-lg-3" >  
+                                    <label>Start time or end time (choose one): </label>
+                                    <input type="time" name="usr_time" id="start">
+                                    <input type="time" name="usr_time" id="end">
+            <!--                        <button id="timeSubmit" class="btn btn-primary">Submit</button>-->
+
+                                
+                            </div>
+                            
+<!--
+                            <div class="col-lg-3" >  
+                                <label>Plans</label>
+                                <div id="plans"></div>
+                                 <button id="authorize-button" style="visibility: hidden" class="btn btn-primary btn-xs">Login and Authorize</button>
+                                <button id="addToCalendar" style="visibility: hidden"  class="btn btn-primary btn-xs">Add to Google Calendar</button>
+
+                                    
+                            </div>
+-->
+                        </div>
+
+                        <div class="col-lg-12" id="submitButtons">
+                            <div>
+                                    <button type="button" id="filterAll"  class="btn btn-primary">Search All</button>
+                                    <button type="button" id="submitClasses"  class="btn btn-primary">Submit Selected Classes</button>
+                            </div>
+                            
+                        
+
+                        <table class="table table-striped table-hover" id="table">
+
+                        </table> 
+
+                        </div>
+
+                    </div>
+                </div>
+            </div> 
+        </div> 
+        <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="bootstrap.min.js"></script>    
+    <script src="data.js"></script>
+    <script src="ui2.js"></script>
+    <script src="calendar.js"></script>
+    </body>
+   
+    
+
+</html>

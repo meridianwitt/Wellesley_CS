@@ -1,0 +1,217 @@
+import java.awt.*;
+
+// CS111 Fall 2013 Take Home Exam
+
+public class BoxWorld extends BuggleWorld {
+  
+    //------------------------------------------------------------------------------
+    // The following main method is needed to run the applet as an application
+  
+    public static void main (String[] args) {
+        runAsApplication(new BoxWorld(), "BoxWorld"); 
+    }
+  
+    // Instance variables
+    String parameterNames [] = {"boxSize", "firstColor","secondColor"};
+    String resultNames [] = {"droppedBagels"};
+    protected ParameterFrame params;
+    
+    public void setup () {
+      // Set up parameter window
+      params = new ParameterFrame("BoxWorld", 300, 200, parameterNames, resultNames);
+      params.setIntParam("boxSize", 16);
+      params.setColorParam("firstColor", Color.red);
+      params.setColorParam("secondColor", Color.blue);
+      params.setVisible(true);
+      java.awt.EventQueue.invokeLater(new Runnable() {
+          @Override
+          public void run() {
+            params.toFront();
+            params.repaint();
+          }
+        });
+
+    }
+    
+    public void reset () {
+      int boxSize = params.getIntParam("boxSize");
+      int gridSize = (boxSize > 0) ? 2 * boxSize : 4;
+      setDimensions(gridSize, gridSize);
+      params.setIntResult("droppedBagels", 0);
+      super.reset();
+    }
+    
+    public void run () {
+      BoxBuggle rocky = new BoxBuggle();
+      rocky.brushUp();
+      rocky.setColor(params.getColorParam("firstColor"));
+      params.setIntResult("droppedBagels",
+                          rocky.drawAllBoxes(params.getIntParam("boxSize"),
+                                             params.getColorParam("firstColor"),
+                                             params.getColorParam("secondColor")));
+//      rocky.drawBox(params.getIntParam("boxSize"));
+//      rocky.drawAllBoxes(params.getIntParam("boxSize"),
+//                        params.getColorParam("firstColor"), 
+//                        params.getColorParam("secondColor"));
+      
+    } // end of the run() method
+    
+} // class BoxWorld
+
+// Add your BoxBuggle class definition below.
+// Your class should include an instance method, "drawAllBoxes",
+// that has three parameters: 1) an integer parameter, n, corresponding to the side length
+// of the initial box in the first row, 2) the first color and 3) the second color.  The method should 
+// return the total number of bagels dropped.
+class BoxBuggle extends Buggle{
+
+  
+  public void drawBoxSide(int n){
+    if (n==0){
+    //do nothing
+    } else {
+    dropBagel();
+    forward();
+    drawBoxSide(n-1);
+   }
+  }
+  
+  public void colorPathSide1(int n, Color c1){
+    if (n==0){
+    //do nothing
+    } else {
+    setColor(c1);
+    brushDown();
+    forward();
+    colorPathSide1(n-1, c1);
+    }
+  }
+  
+  public void drawBox(int n){
+   brushUp();
+   drawBoxSide(n-1);
+   left();
+   drawBoxSide(n-1);
+   left();
+   drawBoxSide(n-1);
+   left();
+   drawBoxSide(n-1);
+   left();
+  }
+  
+  public void colorPath1(int n, Color c1){
+   colorPathSide1(n-1, c1);
+   left();
+   colorPathSide1(n-1, c1);
+   left();
+   colorPathSide1(n-1, c1);
+   left();
+   colorPathSide1(n-1, c1);
+   left();
+  }
+  
+  public void moveIn(){ //to move into the innersquare
+   forward();
+   left();
+   forward();
+   right();
+  }
+  
+  public void moveOut(){
+   brushUp();
+   backward();
+   left();
+   backward();
+   right();
+   backward();
+   left();
+   backward();
+   right();
+  }
+  
+  public void nestedBox(int n, Color c1){
+    drawBox(n);
+    n = n - 2;
+    if (n<2){
+    //do nothing
+    } else {
+    moveIn();
+    colorPath1(n,c1);
+    
+   } 
+  }
+   
+  public int nestedBoxesWhole(int n, Color c1, Color c2){
+    if(n<2){
+      //do nothing
+    } else {
+      nestedBox(n, c1);
+      int bagels = (((n-2)*4) + 4);
+      moveIn();
+      nestedBoxesWhole(n-4,c2, c1);
+      bagels = bagels + (((n-4)*4) + 4);
+      moveOut(); //will not completely recurse because it moves out an extra time 
+      //when the nestBox is not complete with 2 color paths...
+      //failure to recurse prevents the drawAllBoxes method too
+    } return bagels;
+  }
+  
+  public int drawAllBoxes(int n, Color c1, Color c2){
+    int bagels;
+    if(n<=7){
+     nestedBoxesWhole(n, c1, c2);
+       bagels = bagels + (((n-2)*4) + 4); 
+    } else {
+     nestedBoxesWhole(n, c1,c2);
+       bagels = bagels + (((n-2)*4) + 4); 
+     forward(n);
+     nestedBoxesWhole(n/2, c1,c2);
+       bagels = bagels + (((n-4)*4) + 4); 
+     backward(n);
+     left();
+     forward(n);
+     right();
+     drawAllBoxes(n/2, c1, c2);
+     //moveOut();
+     /*int bagels = (((n-2)*4) + 4) 
+       bagels = bagels + ((n-4)*4+4)
+     */
+    } return bagels;
+  }
+  
+  
+ 
+  
+  /*
+   *calculating bagels: ((side-2)*4) + 4, then add recursively for the new 
+   * instances 
+   */
+
+//  public void drawRow1(){
+  
+//  }
+  
+//  public void drawRow2(){
+  
+//  }
+  
+//  public void drawRow3(){
+  
+//  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

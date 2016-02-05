@@ -1,0 +1,23 @@
+import java.awt.*;  
+public class SnowflakesAnimation extends Animation{
+  
+  //constructor
+  public SnowflakesAnimation(){
+    
+    this.addSprite(new ColorBackground()); //blue background
+    for (int i=0; i<300; i++) { //snow speckles
+      this.addSprite(new SmallStar());
+    }
+    this.addSprite(new Snowflakes(0,80,  460,320, 0, 10, Color.blue, Color.magenta)); //levels, length, x, y, dx, dy, color1, color2
+    this.addSprite(new Snowflakes(0,80,  460,320, 0, -10, Color.blue, Color.magenta));
+    this.addSprite(new Snowflakes(0,80,  460,320, 5, 5, Color.blue, Color.magenta));
+    this.addSprite(new Snowflakes(0,80,  460,320, 5, -5, Color.blue, Color.magenta));
+    this.addSprite(new Snowflakes(0,80,  460,320, -5, 5, Color.blue, Color.magenta));
+    this.addSprite(new Snowflakes(0,80,  460,320, -5, -5, Color.blue, Color.magenta));
+    this.addSprite(new Snowflakes(0,80,  460,320, 10, 0, Color.blue, Color.magenta));
+    this.addSprite(new Snowflakes(0,80,  460,320, -10, 0, Color.blue, Color.magenta));
+    this.setNumberFrames(300);
+    
+    
+  }
+}

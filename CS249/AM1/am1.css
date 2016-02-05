@@ -1,0 +1,83 @@
+body {
+  width: 1000px;
+  margin: 5px auto;
+  background: aliceblue;
+}
+
+#novalue{
+  text-align: center;
+}
+
+#titlebox{
+    margin-top: 20px;
+    text-align: center;
+}
+
+h1{
+ font-family: 'Lobster', 'cursive';
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.acontainer{ 
+  width: 300px;
+  height: 130px;
+  margin: 10px;  /* set some space to other elements  */
+  padding: 5px; /* set space between content and border */
+  float: left;
+  box-shadow: 1px 5px 20px #888888;
+  border-style: none;
+  border-radius: 10px;
+  background: white;
+}
+
+.textdiv{
+
+ width: 150px;
+ height: 110px;
+ float:right;
+ padding: 5px;
+ overflow: scroll;
+ 
+}
+
+.albumname p{
+ font-weight: bold;
+}
+
+.artist p{
+
+}
+
+a:link{
+    text-decoration: none;
+    color: black;
+}
+
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+img{
+    display: block;
+    float: left;
+    width: 130px;
+    height: 130px;
+}
+
+.noimage{
+    font-style: italic;
+    font-size: 9pt;
+    float: left;
+    width: 130px;
+    height: 130px;
+}
+}

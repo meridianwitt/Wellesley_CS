@@ -1,0 +1,20 @@
+{
+    "gpachange":
+    [
+        {
+            "discipline":"humanities",
+            "gpa": 3.571,
+            "treated":false
+        },
+        {
+            "discipline":"socialscience",
+            "gpa": 3.464,
+            "treated":false
+        },
+        {
+            "discipline":"science",
+            "gpa": 3.239,
+            "treated":false
+        }
+    ]
+}

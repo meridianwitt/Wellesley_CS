@@ -1,0 +1,57 @@
+html, body { height: 100%; margin: 0; padding: 0; font-family: 'Roboto',sans-serif;}
+
+#map-canvas{
+    float:left;
+    width:800px;
+    height:500px;
+    box-shadow: 1px 5px 20px #888888;
+
+}
+
+#textbox, h1{
+    display: inline;
+}
+
+h1{
+    margin-right: 20px;
+}
+
+#searching{
+    text-align: left;
+    margin: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 800px;
+}
+
+#allhoods{
+    float:right;
+    width:500px;
+    height: 300px;
+    overflow:scroll;
+
+}
+
+#info{
+    float: right;
+    width:500px;
+    height:200px;
+    overflow:scroll;
+    padding: 20px;
+}
+
+ul{
+    font-size: 20px;
+}
+
+li{
+    font-size: 16px;
+    list-style-position: inside;
+    padding-left: 20px; 
+}
+
+li:hover{
+    text-decoration: underline;
+}
+
+
